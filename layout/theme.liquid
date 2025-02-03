@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ shop.name }}</title>
+    {{ content_for_header }}
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+</head>
+<body>
+    <header>{% section 'header' %}</header>
+    <main>{{ content_for_layout }}</main>
+    <footer>{% section 'footer' %}</footer>
+</body>
+</html>
