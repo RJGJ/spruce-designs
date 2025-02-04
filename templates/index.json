@@ -2,9 +2,13 @@
   "sections": {
     "foo": {
       "type": "foo"
+    },
+    "products": {
+      "type": "products"
     }
   },
   "order": [
-    "foo"
+    "foo",
+    "products",
   ]
 }

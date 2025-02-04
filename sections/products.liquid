@@ -1,0 +1,25 @@
+{% schema %}
+{}
+{% endschema %}
+
+<section>
+  <div class="container">
+    <h2>Products</h2>
+    <div class="products">
+      {% for product in collections.all.products %}
+        <div class="card">
+          <a href="{{ product.url }}">
+            <img
+              src="{{ product.featured_image | img_url: 'medium' }}"
+              alt="{{ product.title }}"
+              width="100px"
+              height="100px"
+            >
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.price | money }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
