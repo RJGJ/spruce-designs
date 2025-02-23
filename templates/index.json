@@ -19,16 +19,28 @@
     "gallery": {
       "type": "gallery",
       "blocks": {
+        "image_4Baw4N": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ruffled-orange-petals-of-a-flower-about-to-bloom.jpg"
+          }
+        },
+        "image_h4E8dF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/close-up-of-orange-ruffled-flower-petals.jpg"
+          }
+        },
         "image_C9YAME": {
           "type": "image",
           "settings": {
-            "image_1": "shopify://shop_images/red-and-marbled-orange-flower-petals.jpg",
-            "image_2": "shopify://shop_images/ruffled-orange-petals-of-a-flower-about-to-bloom.jpg",
-            "image_3": "shopify://shop_images/close-up-of-orange-ruffled-flower-petals.jpg"
+            "image": "shopify://shop_images/red-and-marbled-orange-flower-petals.jpg"
           }
         }
       },
       "block_order": [
+        "image_4Baw4N",
+        "image_h4E8dF",
         "image_C9YAME"
       ],
       "settings": {
