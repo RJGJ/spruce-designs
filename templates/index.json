@@ -50,11 +50,11 @@
     "products": {
       "type": "products",
       "settings": {}
-    }
+    },
   },
   "order": [
     "hero",
     "gallery",
-    "products"
+    "products",
   ]
 }

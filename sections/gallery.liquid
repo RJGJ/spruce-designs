@@ -34,7 +34,7 @@
       <!-- Slides -->
       {% for block in section.blocks %}
         <div class="swiper-slide">
-          <img src="{{ block.settings.image | image_url }}" alt="gallery image" width="100px" height="100px">
+          <img src="{{ block.settings.image | image_url }}" alt="gallery image" width="100%" height="auto">
         </div>
       {% endfor %}
     </div>
