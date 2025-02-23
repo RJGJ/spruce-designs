@@ -16,17 +16,7 @@
       "settings": [
         {
           "type": "image_picker",
-          "id": "image_1",
-          "label": "Choose an Image"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_2",
-          "label": "Choose an Image"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_3",
+          "id": "image",
           "label": "Choose an Image"
         }
       ]
@@ -34,3 +24,28 @@
   ]
 }
 {% endschema %}
+
+<section>
+  <h2>{{ settings.gallery_title }}</h2>
+  <!-- Slider main container -->
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          <img src="{{ block.settings.image | image_url }}" alt="gallery image" width="100px" height="100px">
+        </div>
+      {% endfor %}
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+</section>
