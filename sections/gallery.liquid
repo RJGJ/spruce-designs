@@ -1,0 +1,26 @@
+{% schema %}
+{
+  "name": "Gallery Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "gallery_title",
+      "label": "Gallery Title",
+      "default": "Gallery"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Gallery Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Choose an Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

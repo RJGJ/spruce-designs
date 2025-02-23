@@ -1,14 +1,18 @@
 {
   "sections": {
-    "foo": {
-      "type": "foo"
+    "hero": {
+      "type": "hero-section"
+    },
+    "gallery": {
+      "type": "gallery"
     },
     "products": {
       "type": "products"
     }
   },
   "order": [
-    "foo",
+    "hero",
+    "gallery",
     "products",
   ]
 }
