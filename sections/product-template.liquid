@@ -1,0 +1,97 @@
+<section class="product-page">
+  <div class="container">
+    <div class="product-content">
+      <div class="product-image">
+        <img
+          src="{{ product.featured_image | image_url: 'large' }}"
+          alt="{{ product.title }}"
+          height="300px"
+          width="300px"
+        >
+      </div>
+      <div class="product-details">
+        <h1>{{ product.title }}</h1>
+        <p>{{ product.description }}</p>
+        <p class="price">{{ product.price | money }}</p>
+
+        <form method="post" action="/cart/add">
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+          <label for="product-variants">Choose a Variant:</label>
+          {% for option in product.options_with_values %}
+            <label for="option-{{ option.name | handle }}">{{ option.name }}:</label>
+            <select id="option-{{ option.name | handle }}" data-index="{{ forloop.index0 }}">
+              {% for value in option.values %}
+                <option value="{{ value }}">{{ value }}</option>
+              {% endfor %}
+            </select>
+          {% endfor %}
+
+          <p class="product-price">{{ product.variants.first.price | money }}</p>
+
+          <button type="submit">Add to Cart</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const productVariants = {{ product.variants | json }};
+    const optionSelectors = document.querySelectorAll("select[id^='option-']");
+    console.log(optionSelectors);
+    {% comment %} const variantIdInput = document.getElementById("selected-variant-id"); {% endcomment %}
+    {% comment %} const priceDisplay = document.querySelector(".product-price"); {% endcomment %}
+
+    function updateVariant() {
+      const selectedOptions = Array.from(optionSelectors).map(select => select.value);
+
+      const matchingVariant = productVariants.find(variant =>
+        variant.options.every((option, index) => option === selectedOptions[index])
+      );
+
+      if (matchingVariant) {
+        variantIdInput.value = matchingVariant.id;
+        priceDisplay.textContent = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(matchingVariant.price / 100);
+      }
+    }
+
+    {% comment %} optionSelectors.forEach(select => {
+      select.addEventListener("change", updateVariant);
+    }); {% endcomment %}
+
+    {% comment %} updateVariant(); {% endcomment %}
+  });
+</script>
+
+<style>
+  .product-content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .product-image img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  .product-details {
+    max-width: 500px;
+  }
+  .product-details h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .price {
+    font-weight: bold;
+    color: #ff6600;
+    font-size: 20px;
+  }
+  button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+</style>
