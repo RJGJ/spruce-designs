@@ -1,18 +1,48 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
-      "type": "hero-section"
+      "type": "hero-section",
+      "settings": {
+        "heading": "Welcom to our store",
+        "subheading": ""
+      }
     },
     "gallery": {
-      "type": "gallery"
+      "type": "gallery",
+      "blocks": {
+        "image_C9YAME": {
+          "type": "image",
+          "settings": {
+            "image_1": "shopify://shop_images/red-and-marbled-orange-flower-petals.jpg",
+            "image_2": "shopify://shop_images/ruffled-orange-petals-of-a-flower-about-to-bloom.jpg",
+            "image_3": "shopify://shop_images/close-up-of-orange-ruffled-flower-petals.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_C9YAME"
+      ],
+      "settings": {
+        "gallery_title": "Gallery"
+      }
     },
     "products": {
-      "type": "products"
+      "type": "products",
+      "settings": {}
     }
   },
   "order": [
     "hero",
     "gallery",
-    "products",
+    "products"
   ]
 }
