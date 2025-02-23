@@ -1,0 +1,52 @@
+{% schema %}
+{}
+{% endschema %}
+
+{% comment %}
+  <section>
+    <h2>Contact Us</h2>
+    <p>
+      {{ settings.store_tagline }}
+    </p>
+  </section>
+{% endcomment %}
+
+<section class="shop-page">
+  <div class="container">
+    <h1>{{ page.title }}</h1>
+    <div class="product-grid">
+      {% for product in collections.all.products %}
+        <div class="product-card">
+          <a href="{{ product.url }}">
+            <img
+              src="{{ product.featured_image | image_url: 'medium' }}"
+              alt="{{ product.title }}"
+              width="100px"
+              height="100px"
+            >
+            <h2>{{ product.title }}</h2>
+            <p>{{ product.price | money }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .shop-page .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .shop-page .product-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+  }
+  .shop-page .product-card img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
